@@ -1,0 +1,27 @@
+{
+  "name": "clymblog",
+  "version": "1.0.0",
+  "description": "climblog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Solit95/ClymbLog.git"
+  },
+  "author": "Jacob Martin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Solit95/ClymbLog/issues"
+  },
+  "homepage": "https://github.com/Solit95/ClymbLog#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
