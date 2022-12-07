@@ -23,6 +23,10 @@ app.post('/climb', controller.createNewClimb, (req, res) => {
   res.status(200).json(res.locals.newClimb)
 });
 
+//the put request to update entries in the table
+app.put('/climb', controller.updateClimb, (req, res) => {
+  res.status(200).json(res.locals.updated)
+});
 
 
 app.use((err, req, res, next) => {
