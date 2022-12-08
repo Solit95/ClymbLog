@@ -1,11 +1,11 @@
-import React, { setState } from 'react';
+import React, { setState, useEffect } from 'react';
 
 
 
 const Inputs = (props) => {
 
   const handleSubmit = (e) => {
-    
+
     e.preventDefault() 
     
     const name = document.getElementById('name').value
@@ -20,7 +20,7 @@ const Inputs = (props) => {
     if(name === ''){
       return alert('You must at least enter a name to create a new entry');  
     }
-    
+    console.log(requestBody)
     // Send data to the backend via POST
     fetch('http://localhost:8080/', {  
       headers: {
@@ -31,20 +31,22 @@ const Inputs = (props) => {
       mode: 'cors', 
       body: JSON.stringify(requestBody) // body data type must match "Content-Type" header
     })
-    .then((data) => data)
+    .then((data) => data.json())
     .then((data) => {
-        console.log(data)
+        props.setJournal([...props.journal, ...data])
     })
     .catch((err) => {
         console.log(err)
-    }) 
+    })
+
+
     e.target.reset()
   }
 
 
   return (
-    <div >
-      <form name='inputs' onSubmit={handleSubmit} >
+    <div class='inputForm' >
+      <form name='inputs' onSubmit={handleSubmit}  >
         <label htmlFor='name'>Climb name</label><br/>
         <input type='text' id='name' name='name'/><br/>
 

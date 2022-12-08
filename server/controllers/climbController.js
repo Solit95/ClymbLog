@@ -1,16 +1,16 @@
 const Climb = require('../models/climbModel')
 
 const climbController = {};
-
+//it says middlware function error but its actually that the database data cant dake more than ten characters as input
 climbController.createNewClimb = (req, res, next) =>{
-    console.log(req.body)
+    // console.log('request body', req.body)
     const {name, grade, area, style, sendstyle, date, notes} = req.body;
     const query = `INSERT INTO climbs(name, grade, area, style, sendStyle, date, notes) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`;
     const values = [name, grade, area, style, sendstyle, date, notes];
     Climb.query(query, values)
       .then((res) => res)
       .then((data) =>{
-        console.log(data.rows[0])
+        // console.log('data.rows', data.rows)
         res.locals.newClimb = data.rows;
         return next()
       })
@@ -60,8 +60,9 @@ climbController.getClimbs = (req, res, next) => {
   const query = 'SELECT * FROM climbs'
 
   Climb.query(query)
-    .then((res) => {
-      res.locals.climbs = res;
+    .then((data) => {
+      // console.log(data.rows)
+      res.locals.climbs = data.rows;
       return next();
     })
     .catch((err) => {
@@ -73,7 +74,24 @@ climbController.getClimbs = (req, res, next) => {
     })
 }
 
-// climbController.deleteClimb = (req, res, next) => {}
+climbController.deleteClimb = (req, res, next) => {
+  const {name} = req.body;
+  const value = [name];
+  const query = 'DELETE FROM climbs WHERE name = $1'
+  Climb.query(query, value)
+  .then((data) => {
+    console.log('data',data)
+    res.locals.climbs = data.rows;
+    return next();
+  })
+  .catch((err) => {
+    return next({
+      log: 'Express error handler caught climbController.deleteClimb middleware',
+      status: 400,
+      message: { err: `An error occurred ${err}` },
+    })
+  })
+}
 
 
 module.exports = climbController;

@@ -30,7 +30,11 @@ app.put('/climb', controller.updateClimb, (req, res) => {
 
 app.get('/climbs', controller.getClimbs, (req, res) => {
   res.status(200).json(res.locals.climbs);
-})
+});
+
+app.delete('/climbs', controller.deleteClimb, (req, res) => {
+  res.status(200).json(res.locals.deleted);
+});
 
 
 app.use((err, req, res, next) => {

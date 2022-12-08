@@ -29,11 +29,25 @@ form {
 
 label {
   justify-content: center;
+  
+}
+
+.inputForm {
+  background-color: rgb(175, 171, 171);
+  margin-left: 200px;
+  margin-right:200px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-radius: 20px;
+  border: solid 1px black;
 }
 
 input {
  width: 200px;
  height: 20px;
+ border-radius: 5px;
+ border-style: none;
+ border:solid 1px black;
 }
 
 #submit {
@@ -42,4 +56,31 @@ input {
 
 #journal {
     width: 100px;
+}
+.table {
+  display:flex;
+  justify-content: center;
+  padding-top: 20px;
+  
+}
+
+table {
+  width: 75%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
+#delete {
+  font-size: 12px;
+  width:50px;
+  color: rgb(47, 46, 46);
+  background-color: rgb(129, 195, 217);
+  border: 1px; 
+  border-style: groove;
+  border-color: black;
+  border-radius: 4px;
+
 }
