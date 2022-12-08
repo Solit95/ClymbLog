@@ -44,7 +44,7 @@ const CreatePage = () => {
 
   
   return (
-    <div >
+    <div class='createPage' >
       <h2>Enter a new journal entry or click the journal entries link to see a list of climbs you've done</h2>
         
         

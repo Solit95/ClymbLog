@@ -32,10 +32,15 @@ label {
   
 }
 
+.createPage {
+  display: grid;
+  justify-items: center;
+}
+
 .inputForm {
+  
   background-color: rgb(175, 171, 171);
-  margin-left: 200px;
-  margin-right:200px;
+  width:400px;
   padding-top: 30px;
   padding-bottom: 30px;
   border-radius: 20px;
