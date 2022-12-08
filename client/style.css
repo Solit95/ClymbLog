@@ -1,0 +1,45 @@
+body {
+   background-color: lightblue; 
+   display: grid;
+   
+}
+#root {
+
+}
+
+h1 {
+  display:grid;
+  justify-content: center    
+}
+
+h2 {
+  display: grid;
+  justify-content: center;
+}
+
+label {
+  font-size: 20px;
+}
+
+form {
+  display:grid;
+  justify-content: center;
+  justify-items:center;
+}
+
+label {
+  justify-content: center;
+}
+
+input {
+ width: 200px;
+ height: 20px;
+}
+
+#submit {
+  width: 100px;
+}
+
+#journal {
+    width: 100px;
+}

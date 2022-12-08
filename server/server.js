@@ -17,16 +17,20 @@ app.get('/', (req,res) =>{
   res.sendFile(path.resolve(__dirname, '../client/index.html'))
 })
 
-app.post('/climb', controller.createNewClimb, (req, res) => {
+app.post('/', controller.createNewClimb, (req, res) => {
   //create new climb in the controller and put in the dataBase
   //when its in the database we can await that its in the database and then reroute the client the logbook page which shows all of the climbs in the database
-  res.status(200).json(res.locals.newClimb)
+  res.status(200).json(res.locals.newClimb);
 });
 
 //the put request to update entries in the table
 app.put('/climb', controller.updateClimb, (req, res) => {
-  res.status(200).json(res.locals.updated)
+  res.status(200).json(res.locals.updated);
 });
+
+app.get('/climbs', controller.getClimbs, (req, res) => {
+  res.status(200).json(res.locals.climbs);
+})
 
 
 app.use((err, req, res, next) => {

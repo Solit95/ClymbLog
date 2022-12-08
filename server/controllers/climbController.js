@@ -56,6 +56,23 @@ climbController.updateClimb = (req, res, next) => {
   })
 }
 
+climbController.getClimbs = (req, res, next) => {
+  const query = 'SELECT * FROM climbs'
+
+  Climb.query(query)
+    .then((res) => {
+      res.locals.climbs = res;
+      return next();
+    })
+    .catch((err) => {
+      return next({
+        log: 'Express error handler caught climbController.getClimb middleware',
+        status: 400,
+        message: { err: `An error occurred ${err}` },
+      })
+    })
+}
+
 // climbController.deleteClimb = (req, res, next) => {}
 
 
